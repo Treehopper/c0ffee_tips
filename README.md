@@ -1,9 +1,9 @@
-c0ffee_tip ![Travis CI](https://api.travis-ci.org/Treehopper/c0ffee_tip.svg "Build Status")
+c0ffee_tips ![Travis CI](https://api.travis-ci.org/Treehopper/c0ffee_tips.svg "Build Status")
 ===================
 
 Install from p2 update site
 ===================
-http://treehopper.github.io/c0ffee_tip/
+http://treehopper.github.io/c0ffee_tips/
 
 License
 ===================
