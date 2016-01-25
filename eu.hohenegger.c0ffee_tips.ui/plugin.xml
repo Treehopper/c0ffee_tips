@@ -9,4 +9,15 @@
             id="eu.hohenegger.c0ffee_tips.ui.hover">
       </hover>
    </extension>
+   <extension
+         id="eu.hohenegger.c0ffee_tips.completion.category"
+         name="c0ffee_tips"
+         point="org.eclipse.jdt.ui.javaCompletionProposalComputer">
+      <javaCompletionProposalComputer
+            activate="true"
+            categoryId="eu.hohenegger.c0ffee_tips.completion.category"
+            class="eu.hohenegger.c0ffee_tips.ui.impl.CompletionProposalComputer"
+            needsSortingAfterFiltering="false">
+      </javaCompletionProposalComputer>
+   </extension>
 </plugin>
