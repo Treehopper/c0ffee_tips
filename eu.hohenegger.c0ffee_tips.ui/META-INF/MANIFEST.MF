@@ -27,7 +27,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.team.ui,
  org.eclipse.e4.tools.compat,
  org.eclipse.jdt.ui,
- org.eclipse.jface.text
+ org.eclipse.jface.text,
+ org.eclipse.ui.editors,
+ org.eclipse.ui.browser
 Import-Package: javax.inject;version="1.0.0",javax.annotation; version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
