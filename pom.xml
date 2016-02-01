@@ -11,6 +11,7 @@
 		<module>eu.hohenegger.c0ffee_tips.p2updatesite</module>
 		<module>eu.hohenegger.c0ffee_tips</module>
 		<module>eu.hohenegger.c0ffee_tips.ui</module>
+		<module>eu.hohenegger.c0ffee_tips.debug.ui</module>
 		<module>eu.hohenegger.c0ffee_tips.tests</module>
 		<module>eu.hohenegger.c0ffee_tips.releng.targetplatform</module>
 	</modules>
