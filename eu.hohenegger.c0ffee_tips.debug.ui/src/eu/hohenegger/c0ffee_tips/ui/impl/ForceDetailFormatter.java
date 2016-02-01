@@ -60,13 +60,13 @@ class ForceDetailFormatter {
         manager.removeAssociatedDetailFormatter(formatter);
     }
 
-    public void forceRemoveFormatter(Class<Long> type, String snippet) {
+    public void forceRemoveFormatter(Class<?> type, String snippet) {
         String typeName = type.getName();
         if (!referenceAlreadyExists(typeName)) {
             removeFormatter(typeName, snippet);
         }
     }
-    public void forceFormatter(Class<Long> type, String snippet) {
+    public void forceFormatter(Class<?> type, String snippet) {
         String typeName = type.getName();
         if (!referenceAlreadyExists(typeName)) {
             addFormatter(typeName, snippet);
