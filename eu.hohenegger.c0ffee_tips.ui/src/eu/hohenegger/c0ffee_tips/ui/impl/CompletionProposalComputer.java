@@ -39,8 +39,6 @@ public class CompletionProposalComputer implements IJavaCompletionProposalComput
 			return Collections.emptyList();
 		}
 		
-		Point selectedRange = context.getViewer().getSelectedRange();
-		
 		List<ICompletionProposal> res = new ArrayList<ICompletionProposal>();
 		
 		

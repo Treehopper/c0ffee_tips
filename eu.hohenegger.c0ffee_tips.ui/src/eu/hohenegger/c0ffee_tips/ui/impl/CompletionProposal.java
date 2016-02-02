@@ -8,8 +8,6 @@ import org.eclipse.jface.text.contentassist.IContextInformation;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 
-import eu.hohenegger.c0ffee_tips.ConverterUtil;
-
 final class CompletionProposal implements ICompletionProposal {
 	private String string;
 	private String newString;
@@ -51,8 +49,7 @@ final class CompletionProposal implements ICompletionProposal {
 
 	@Override
 	public Point getSelection(IDocument document) {
-		//no new selection
-		return null;
+		return new Point(context.getInvocationOffset(), newString.length());
 	}
 
 	@Override
