@@ -11,28 +11,21 @@ import org.eclipse.swt.graphics.Point;
 import eu.hohenegger.c0ffee_tips.ConverterUtil;
 
 final class CompletionProposal implements ICompletionProposal {
-	private final ContentAssistInvocationContext context;
+	private String string;
+	private String newString;
+	private ContentAssistInvocationContext context;
 
-	CompletionProposal(ContentAssistInvocationContext context) {
+	public CompletionProposal(String string, String newString, ContentAssistInvocationContext context) {
+		this.string = string;
+		this.newString = newString;
 		this.context = context;
 	}
 
 	@Override
 	public String getDisplayString() {
-		return String.format("Replace '%s' with '%s'.", getSelectedText(context), ConverterUtil.convert(getSelectedText(context)));
+		return String.format("Replace '%s' with '%s'.", string, newString);
 	}
 
-	private String getSelectedText(final ContentAssistInvocationContext context) {
-		Point selectedRange = context.getViewer().getSelectedRange();
-		String string = "";
-		try {
-			string = context.getDocument().get(selectedRange.x, selectedRange.y);
-		} catch (BadLocationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return string;
-	}
 
 	@Override
 	public String getAdditionalProposalInfo() {
@@ -47,8 +40,6 @@ final class CompletionProposal implements ICompletionProposal {
 	/** Inserts the proposed completion at the cursor position */
 	@Override
 	public void apply(IDocument document) {
-		String string = getSelectedText(context);
-		String newString = ConverterUtil.convert(string);
 		Point selectedRange = context.getViewer().getSelectedRange();
 		
 		try {
