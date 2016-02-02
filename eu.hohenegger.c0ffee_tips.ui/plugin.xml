@@ -20,27 +20,4 @@
             needsSortingAfterFiltering="false">
       </javaCompletionProposalComputer>
    </extension>
-   <extension
-         point="org.eclipse.ui.popupMenus">
-      <objectContribution
-            objectClass="org.eclipse.ui.IEditorInput"
-            nameFilter="*.*"
-            id="SimplePopupMenu.contribution1">
-         <menu
-               label="Online Converters"
-               path="additions"
-               id="SimplePopupMenu.menu1">
-            <separator
-                  name="group1">
-            </separator>
-         </menu>
-         <action
-               label="Wolfram Alpha"
-               class="eu.hohenegger.c0ffee_tips.ui.impl.actions.SimpleMessageAction"
-               menubarPath="SimplePopupMenu.menu1/group1"
-               enablesFor="1"
-               id="SimplePopupMenu.newAction">
-         </action>
-      </objectContribution>
-   </extension>
 </plugin>
