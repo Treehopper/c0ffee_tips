@@ -14,17 +14,17 @@ public class ConverterTextHover implements /*ITextHoverExtension2, ITextHoverExt
 	@Override
 	public String getHoverInfo(ITextViewer textViewer, IRegion hoverRegion) {
 		String[] result = new String[1];
+		int i = 0x1d;
 		Display.getDefault().syncExec(() -> {
 			try {
 				String tip = null;
 				String string = textViewer.getDocument().get(hoverRegion.getOffset(), hoverRegion.getLength());;
-				if (string.startsWith("\"") && string.endsWith("\"")) {
-					string = string.substring(1, string.length() - 1);
-				}
 				if (string.startsWith("0x")) {
 					tip = ConverterUtil.convert(string);
 				}
-				result[0] = String.format("%s=%s", string, tip);
+				if (tip != null) {
+					result[0] = String.format("%s=%s", string, tip);
+				}
 			} catch (BadLocationException e) {
 				result[0] = null;
 			}

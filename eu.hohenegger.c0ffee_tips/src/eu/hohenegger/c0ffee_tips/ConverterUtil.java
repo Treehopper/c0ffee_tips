@@ -6,6 +6,13 @@ public class ConverterUtil {
 	public static String convert(String parameter) {
 		String result = "";
 		
+		if (parameter.startsWith("\"") && parameter.endsWith("\"")) {
+			parameter = parameter.substring(1, parameter.length() - 1);
+		}
+		if (parameter.endsWith("l") || parameter.endsWith("f") || parameter.endsWith("d")) {
+			parameter = parameter.substring(0, parameter.length() - 1);
+		}
+		
 		try {
 			if (parameter.startsWith(HEX_PREFIX)) {
 				String numberString = parameter.substring(HEX_PREFIX.length(), parameter.length());
