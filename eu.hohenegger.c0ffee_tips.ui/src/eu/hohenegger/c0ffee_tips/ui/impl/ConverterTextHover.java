@@ -14,7 +14,6 @@ public class ConverterTextHover implements /*ITextHoverExtension2, ITextHoverExt
 	@Override
 	public String getHoverInfo(ITextViewer textViewer, IRegion hoverRegion) {
 		String[] result = new String[1];
-		int i = 0x1d;
 		Display.getDefault().syncExec(() -> {
 			try {
 				String tip = null;
