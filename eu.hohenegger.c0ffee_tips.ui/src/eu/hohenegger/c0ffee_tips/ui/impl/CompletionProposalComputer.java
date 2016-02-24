@@ -33,7 +33,7 @@ public class CompletionProposalComputer implements IJavaCompletionProposalComput
 			IProgressMonitor monitor) {
 
 		String string = getSelectedText(context);
-		String newString = ConverterUtil.convert(string);
+		String newString = ConverterUtil.convert2dec(string);
 		
 		if (newString.isEmpty()) {
 			return Collections.emptyList();

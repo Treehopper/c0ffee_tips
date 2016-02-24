@@ -24,8 +24,8 @@ public class TestBasic {
 
 	@Test
 	public void testConvert() throws Exception {
-		assertEquals(String.format("%d", 0xc0ffee), ConverterUtil.convert("0xc0ffee"));
-		assertEquals("0xc0ffee", ConverterUtil.convert(String.format("%d", 0xc0ffee)));
+		assertEquals(String.format("%d", 0xc0ffee), ConverterUtil.convert2dec("0xc0ffee"));
+		assertEquals("0xc0ffee", ConverterUtil.convert2dec(String.format("%d", 0xc0ffee)));
 	}
 
 	@After

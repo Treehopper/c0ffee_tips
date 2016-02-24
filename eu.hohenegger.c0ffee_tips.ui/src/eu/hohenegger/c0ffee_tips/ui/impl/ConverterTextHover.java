@@ -23,22 +23,26 @@ public class ConverterTextHover implements /*ITextHoverExtension2, ITextHoverExt
 		});
 		String hoverToken = result.toString();
 		
-		String int32 = null;
+		String int32dec = null;
+		String int32bin = null;
 		
 		if (hoverToken.startsWith("0x")) {
-			int32 = ConverterUtil.convert(hoverToken);
+			int32dec = ConverterUtil.convert2dec(hoverToken);
+			int32bin = ConverterUtil.convert2bin(hoverToken);
 		}
-		if (int32 != null) {
-			return format(hoverToken, int32);
+		if (int32dec != null) {
+			return format(hoverToken, int32dec, int32bin);
 		}
 		return null;
 	}
 
-	private String format(String hoverToken, String tip) {
+	private String format(String hoverToken, String int32dec, String int32bin) {
 		String result = "<html>";
 		result += String.format("<b>%s:</b>", hoverToken);
 		result += "<br>";
-		result += String.format("Integer: %s", tip);
+		result += String.format("dec: %s", int32dec);
+		result += "<br>";
+		result += String.format("bin: %s", int32bin);
 		result += "</html>";
 		return result;
 	}
