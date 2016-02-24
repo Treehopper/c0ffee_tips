@@ -13,23 +13,34 @@ public class ConverterTextHover implements /*ITextHoverExtension2, ITextHoverExt
 
 	@Override
 	public String getHoverInfo(ITextViewer textViewer, IRegion hoverRegion) {
-		String[] result = new String[1];
+		StringBuffer result = new StringBuffer();
 		Display.getDefault().syncExec(() -> {
 			try {
-				String tip = null;
-				String string = textViewer.getDocument().get(hoverRegion.getOffset(), hoverRegion.getLength());;
-				if (string.startsWith("0x")) {
-					tip = ConverterUtil.convert(string);
-				}
-				if (tip != null) {
-					result[0] = String.format("%s=%s", string, tip);
-				}
+				result.append(textViewer.getDocument().get(hoverRegion.getOffset(), hoverRegion.getLength()));
 			} catch (BadLocationException e) {
-				result[0] = null;
+				//do nothing
 			}
-
 		});
-		return result[0];
+		String hoverToken = result.toString();
+		
+		String int32 = null;
+		
+		if (hoverToken.startsWith("0x")) {
+			int32 = ConverterUtil.convert(hoverToken);
+		}
+		if (int32 != null) {
+			return format(hoverToken, int32);
+		}
+		return null;
+	}
+
+	private String format(String hoverToken, String tip) {
+		String result = "<html>";
+		result += String.format("<b>%s:</b>", hoverToken);
+		result += "<br>";
+		result += String.format("Integer: %s", tip);
+		result += "</html>";
+		return result;
 	}
 
 	@Override
